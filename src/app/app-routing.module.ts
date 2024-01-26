@@ -1,10 +1,16 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes, RouterModule } from '@angular/router';
+import { CrFormComponent } from './cr-form/cr-form.component';
 
-const routes: Routes = [];
+const routes: Routes = [
+  {
+    path: 'cr',  
+    loadChildren: () => import('./cr-form/cr-form.module').then(m => m.CrFormModule),  
+  },
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}
